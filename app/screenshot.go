@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-func s() {
+func testtt() {
 	n := screenshot.NumActiveDisplays()
 
 	for i := 0; i < n; i++ {
@@ -22,8 +22,8 @@ func s() {
 		fileName := fmt.Sprintf("%d_%dx%d.png", i, bounds.Dx(), bounds.Dy())
 		file, _ := os.Create(fileName)
 		defer file.Close()
+		//png.Encode(file, img)
 		png.Encode(file, img)
-
 		fmt.Printf("#%d : %v \"%s\"\n", i, bounds, fileName)
 	}
 }

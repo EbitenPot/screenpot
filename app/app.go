@@ -15,10 +15,15 @@ type Game struct {
 
 	WX int
 	WY int
+
+	ConfigFile []byte
+
+	PicType
 }
 
 func NewGame() *Game {
 	x, y := ebiten.ScreenSizeInFullscreen()
+	//cf, _ := os.ReadFile("config.json")
 	return &Game{
 		WH: 64,
 		WW: 256,
@@ -44,7 +49,7 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeigh
 
 func (g *Game) Exit() {
 	if ebiten.IsWindowBeingClosed() {
-		ebiten.SetFullscreen(true)
+		testtt()
 		/*err := beeep.Notify("Title", "Message body", "assets/information.png")
 		if err != nil {
 			panic(err)
