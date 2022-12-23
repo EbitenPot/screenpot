@@ -8,15 +8,18 @@ require (
 	github.com/hajimehoshi/ebiten/v2 v2.4.15
 	github.com/kbinani/screenshot v0.0.0-20210720154843-7d3a670d8329
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
+	github.com/pkg/profile v1.7.0
 	github.com/tidwall/gjson v1.14.4
 )
 
 require (
 	github.com/ebitengine/purego v0.0.0-20220905075623-aeed57cda744 // indirect
+	github.com/felixge/fgprof v0.9.3 // indirect
 	github.com/gen2brain/shm v0.0.0-20200228170931-49f9650110c5 // indirect
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20220806181222-55e207c401ad // indirect
 	github.com/go-toast/toast v0.0.0-20190211030409-01e6764cf0a4 // indirect
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
+	github.com/google/pprof v0.0.0-20211214055906-6f57359322fd // indirect
 	github.com/gopherjs/gopherjs v1.17.2 // indirect
 	github.com/hajimehoshi/file2byteslice v0.0.0-20210813153925-5340248a8f41 // indirect
 	github.com/jezek/xgb v1.0.1 // indirect
