@@ -2,14 +2,11 @@
 
 package app
 
-type PicType int
-type RECType int
-
 const (
-	PTPng PicType = iota
-	PTJPG
-	PTGIF
+	PTPNG = "png"
+	PTJPG = "jpg"
+	PTGIF = "gif"
 
-	RTMP4 RECType = iota
-	RTAVI
+	RTMP4 = "mp4"
+	RTAVI = "avi"
 )

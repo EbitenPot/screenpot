@@ -15,6 +15,4 @@
 # vendor/
 /.idea
 
-*.bmp
-*.jpg
-*.png
+0*.png

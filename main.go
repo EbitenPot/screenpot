@@ -4,7 +4,6 @@ package main
 
 import (
 	"github.com/EbitenPot/screenpot/app"
-	"github.com/ebiten/emoji"
 	"github.com/hajimehoshi/ebiten/v2"
 	"image"
 	"log"
@@ -20,8 +19,7 @@ func main() {
 	ebiten.SetWindowPosition(a.WX, a.WY)
 	ebiten.SetTPS(30)
 	ebiten.SetRunnableOnUnfocused(true)
-	icon := emoji.Image("📷")
-	icons := append([]image.Image{}, icon.SubImage(icon.Bounds()))
+	icons := append([]image.Image{}, app.ImgCamera)
 	ebiten.SetWindowIcon(icons)
 	if err := ebiten.RunGame(a); err != nil {
 		log.Fatal(err)

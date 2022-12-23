@@ -4,12 +4,13 @@ package app
 
 import (
 	"fmt"
+	"github.com/gen2brain/beeep"
 	"github.com/kbinani/screenshot"
 	"image/png"
 	"os"
 )
 
-func testtt() {
+func ShotTest() {
 	n := screenshot.NumActiveDisplays()
 
 	for i := 0; i < n; i++ {
@@ -26,4 +27,5 @@ func testtt() {
 		png.Encode(file, img)
 		fmt.Printf("#%d : %v \"%s\"\n", i, bounds, fileName)
 	}
+	beeep.Notify("screenpot", "Screen has saved.", "assets/information.png")
 }
