@@ -98,7 +98,7 @@ func (g *Game) Update() error {
 }
 
 func (g *Game) Draw(screen *ebiten.Image) {
-	screen.Fill(color.RGBA{R: 144, G: 139, B: 198, A: 0xff})
+	screen.Fill(color.RGBA{R: 144, G: 139, B: 198, A: 0})
 	op := new(ebiten.DrawImageOptions)
 	op.GeoM.Scale(0.5, 0.5)
 	op.GeoM.Translate(0, 0)
