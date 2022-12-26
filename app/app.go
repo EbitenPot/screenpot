@@ -61,12 +61,14 @@ func (g *Game) PressButton(x, _ int) {
 	if x < 36 { //shot
 		ShotTest()
 	} else if x < 72 { //rec
-		dlgs.Info("Sorry", "Please wait the feature!")
+		dlgs.Info("Sorry", "Please wait the features!")
 	} else if x < 108 { //pause
-		dlgs.Info("Sorry", "Please wait the feature!")
+		dlgs.Info("Sorry", "Please wait the features!")
 	} else if x < 108+36 { //folder
-
-		dlgs.Info("Sorry", "Please wait the feature!")
+		err := browser.OpenFile("C:/")
+		if err != nil {
+			dlgs.Warning("Warning", fmt.Sprintf("openBrowser: unsupported operating system: %v", runtime.GOOS))
+		}
 	} else if x < 108+36+36 { //site
 		err := browser.OpenURL("https://github.com/EbitenPot/screenpot")
 		if err != nil {
