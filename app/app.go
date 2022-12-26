@@ -39,49 +39,61 @@ type Game struct {
 
 	PicType string
 	RecType string
+	FPath   string
 }
 
 func NewGame() *Game {
 	x, y := ebiten.ScreenSizeInFullscreen()
-	cf, _ := os.ReadFile("config.json")
-	pt := gjson.GetBytes(cf, "pictype").String()
-	rt := gjson.GetBytes(cf, "rectype").String()
+
+	/*
+		for other language speakers:
+		It was just a joke ↓↓↓
+		If there are any problems,
+		you can change to ASCII characters.
+	*/
+	图片格式 := "png"
+	视频格式 := "mp4"
+	文件夹, _ := os.Getwd()
+	cf, err := os.ReadFile("config.json")
+	if err != nil {
+		图片格式 = gjson.GetBytes(cf, "pictype").String()
+		视频格式 = gjson.GetBytes(cf, "rectype").String()
+		文件夹 = gjson.GetBytes(cf, "savefolder").String()
+	}
 	return &Game{
 		WW:         256,
 		WH:         36,
 		WX:         x - 296,
 		WY:         y - 100,
 		ConfigFile: cf,
-		PicType:    pt,
-		RecType:    rt,
+		PicType:    图片格式,
+		RecType:    视频格式,
+		FPath:      文件夹 + "output/",
 	}
 }
 
 func (g *Game) PressButton(x, _ int) {
 	if x < 36 { //shot
 		ShotTest()
-	} else if x < 72 { //rec
+	} else if x < 36*2 { //rec
 		dlgs.Info("Sorry", "Please wait the features!")
-	} else if x < 108 { //pause
+	} else if x < 36*3 { //pause
 		dlgs.Info("Sorry", "Please wait the features!")
-	} else if x < 108+36 { //folder
-		err := browser.OpenFile("C:/")
+	} else if x < 36*4 { //folder
+		err := browser.OpenFile(g.FPath)
 		if err != nil {
 			dlgs.Warning("Warning", fmt.Sprintf("openBrowser: unsupported operating system: %v", runtime.GOOS))
 		}
-	} else if x < 108+36+36 { //site
+	} else if x < 36*5 { //site
 		err := browser.OpenURL("https://github.com/EbitenPot/screenpot")
 		if err != nil {
 			dlgs.Warning("Warning", fmt.Sprintf("openBrowser: unsupported operating system: %v", runtime.GOOS))
 		}
-	} else if x < 108+36+36+36 { //about
-
-		dlgs.Info("About", `
-Author: EldersJavas(eldersjavas@gmail.com)
+	} else if x < 36*6 { //about
+		dlgs.Info("About", `Author: EldersJavas(eldersjavas@gmail.com)
 Github: github.com/EbitenPot/screenpot
-License: GPL v2.0		
-		`)
-	} else if x < 108+36+36+36+36 { //close
+License: GPL v2.0`)
+	} else if x < 36*7 { //close
 		g.Exit()
 	} else {
 		return
