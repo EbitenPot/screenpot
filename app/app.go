@@ -51,8 +51,11 @@ func NewGame() *Game {
 		If there are any problems,
 		you can change to ASCII characters.
 	*/
+	//goland:noinspection NonAsciiCharacters
 	图片格式 := "png"
+	//goland:noinspection NonAsciiCharacters
 	视频格式 := "mp4"
+	//goland:noinspection NonAsciiCharacters
 	文件夹, _ := os.Getwd()
 	cf, err := os.ReadFile("config.json")
 	if err != nil {
