@@ -4,13 +4,13 @@ package res
 
 import (
 	"embed"
-	_ "embed"
-	_ "image/png"
 	"io/fs"
 )
 
-//go:embed img
-var embimg embed.FS
+var (
+	//go:embed img
+	embimg embed.FS
+)
 
 var Img fs.FS
 
