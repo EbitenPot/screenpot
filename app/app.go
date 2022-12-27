@@ -79,23 +79,38 @@ func (g *Game) PressButton(x, _ int) {
 	if x < 36 { //shot
 		ShotTest()
 	} else if x < 36*2 { //rec
-		dlgs.Info("Sorry", "Please wait the features!")
+		_, err := dlgs.Info("Sorry", "Please wait the features!")
+		if err != nil {
+			return
+		}
 	} else if x < 36*3 { //pause
-		dlgs.Info("Sorry", "Please wait the features!")
+		_, err := dlgs.Info("Sorry", "Please wait the features!")
+		if err != nil {
+			return
+		}
 	} else if x < 36*4 { //folder
 		err := browser.OpenFile(g.FPath)
 		if err != nil {
-			dlgs.Warning("Warning", fmt.Sprintf("openBrowser: unsupported operating system: %v", runtime.GOOS))
+			_, err := dlgs.Warning("Warning", fmt.Sprintf("openBrowser: unsupported operating system: %v", runtime.GOOS))
+			if err != nil {
+				return
+			}
 		}
 	} else if x < 36*5 { //site
 		err := browser.OpenURL("https://github.com/EbitenPot/screenpot")
 		if err != nil {
-			dlgs.Warning("Warning", fmt.Sprintf("openBrowser: unsupported operating system: %v", runtime.GOOS))
+			_, err := dlgs.Warning("Warning", fmt.Sprintf("openBrowser: unsupported operating system: %v", runtime.GOOS))
+			if err != nil {
+				return
+			}
 		}
 	} else if x < 36*6 { //about
-		dlgs.Info("About", `Author: EldersJavas(eldersjavas@gmail.com)
+		_, err := dlgs.Info("About", `Author: EldersJavas(eldersjavas@gmail.com)
 Github: github.com/EbitenPot/screenpot
 License: GPL v2.0`)
+		if err != nil {
+			return
+		}
 	} else if x < 36*7 { //close
 		g.Exit()
 	} else {
@@ -135,6 +150,8 @@ func (g *Game) Draw(screen *ebiten.Image) {
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
+	outsideWidth = outsideWidth
+	outsideHeight = outsideHeight
 	return g.WW, g.WH
 }
 
