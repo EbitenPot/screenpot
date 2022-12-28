@@ -1,6 +1,8 @@
 # screenpot
 screenpot - screenshot GUI tool (pic&amp;video!)
 
+Support Windows/Linux/Mac and so on!
+
 [![GitHub license](https://img.shields.io/github/license/EbitenPot/screenpot?style=flat-square)](https://github.com/EbitenPot/screenpot/blob/master/LICENSE)
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/EbitenPot/screenpot?style=flat-square)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/EbitenPot/screenpot?style=flat-square)](https://github.com/EbitenPot/screenpot)
@@ -12,8 +14,15 @@ screenpot - screenshot GUI tool (pic&amp;video!)
 ## Install
 
 ```shell
+# latest release version
 >go install github.com/EbitenPot/screenpot@latest
+
+# latest code building
+>go install github.com/EbitenPot/screenpot@main
+
+
 >screenpot
+
 ```
 
 ## Feature
