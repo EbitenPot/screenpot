@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/gen2brain/beeep v0.0.0-20220909211152-5a9ec94374f6
 	github.com/gen2brain/dlgs v0.0.0-20220603100644-40c77870fa8d
+	github.com/gen2brain/x264-go v0.2.3-0.20221224044516-9a74c944fe06
 	github.com/hajimehoshi/ebiten/v2 v2.4.15
 	github.com/kbinani/screenshot v0.0.0-20210720154843-7d3a670d8329
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
@@ -14,7 +15,7 @@ require (
 require (
 	github.com/ebitengine/purego v0.0.0-20220905075623-aeed57cda744 // indirect
 	github.com/gen2brain/shm v0.0.0-20200228170931-49f9650110c5 // indirect
-	github.com/gen2brain/x264-go v0.2.3-0.20221224044516-9a74c944fe06 // indirect
+	// indirect
 	github.com/gen2brain/x264-go/x264c v0.0.0-20221204084822-82ee2951dea2 // indirect
 	github.com/gen2brain/x264-go/yuv v0.0.0-20221204084822-82ee2951dea2 // indirect
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20220806181222-55e207c401ad // indirect

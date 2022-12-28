@@ -16,13 +16,10 @@ Support Windows/Linux/Mac and so on!
 ```shell
 # latest release version
 >go install github.com/EbitenPot/screenpot@latest
-
 # latest code building
 >go install github.com/EbitenPot/screenpot@main
 
-
 >screenpot
-
 ```
 
 ## Feature
@@ -32,12 +29,17 @@ Support Windows/Linux/Mac and so on!
 - [x] Config
 - [ ] Config with UI
 
+## FAQ
 
+#### Why GPLv2?
+Beacuse I use [`x264-go`](https://github.com/gen2brain/x264-go).
 
+#### I cannot open/It often crashes...
 
+Feel free to open issues!
 
+#### Why am I taking so long to compile?
 
-
-
+IDK. I often takes 20min. I guess the reason is `cgo`.
 
 > By EldersJavas
