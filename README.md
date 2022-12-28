@@ -19,9 +19,9 @@ screenpot - screenshot GUI tool (pic&amp;video!)
 ## Feature
 
 - [x] Screenshot
-- [ ] Screen Record
-- [x] TranslationConfig
-- [ ] TranslationConfig with UI
+- [x] Screen Record
+- [x] Config
+- [ ] Config with UI
 
 
 
