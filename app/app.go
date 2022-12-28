@@ -79,7 +79,10 @@ func (g *Game) PressButton(x, _ int) {
 	if x < 36 { //shot
 		ShotTest()
 	} else if x < 36*2 { //rec
-		_, err := dlgs.Info("Sorry", "Please wait the features!")
+		//trt ,_:= NewTranslation(TranslationConfig{}).T("Please wait the features!", "en", "zh")
+		//ttest, _ := trt.T("Please wait the features!", "en", "zh")
+		//_, err := dlgs.Info("Sorry", "Please wait the features!")
+		err := Rectest()
 		if err != nil {
 			return
 		}

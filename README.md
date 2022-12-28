@@ -20,8 +20,8 @@ screenpot - screenshot GUI tool (pic&amp;video!)
 
 - [x] Screenshot
 - [ ] Screen Record
-- [x] Config
-- [ ] Config with UI
+- [x] TranslationConfig
+- [ ] TranslationConfig with UI
 
 
 
