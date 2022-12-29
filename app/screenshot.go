@@ -11,6 +11,12 @@ import (
 	"os"
 )
 
+type ScreenShot struct {
+	Path      string
+	PicType   string
+	ScreenNum int8
+}
+
 func ShotTest() {
 	//n := screenshot.NumActiveDisplays()
 

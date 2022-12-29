@@ -8,10 +8,8 @@ import (
 	"github.com/gen2brain/dlgs"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
-	"github.com/hajimehoshi/ebiten/v2/inpututil"
 	"github.com/pkg/browser"
 	"github.com/tidwall/gjson"
-	"image/color"
 	_ "image/png"
 	"os"
 	"runtime"
@@ -37,9 +35,10 @@ type Game struct {
 
 	ConfigFile []byte
 
-	PicType string
-	RecType string
-	FPath   string
+	PicType       string
+	RecType       string
+	FPath         string
+	Defaultscreen int8
 }
 
 func NewGame() *Game {
@@ -57,21 +56,26 @@ func NewGame() *Game {
 	视频格式 := "mp4"
 	//goland:noinspection NonAsciiCharacters
 	文件夹, _ := os.Getwd()
+
+	var ds int8
 	cf, err := os.ReadFile("config.json")
 	if err != nil {
 		图片格式 = gjson.GetBytes(cf, "pictype").String()
 		视频格式 = gjson.GetBytes(cf, "rectype").String()
 		文件夹 = gjson.GetBytes(cf, "savefolder").String()
+		ds = int8(gjson.GetBytes(cf, "defaultscreen").Int())
+
 	}
 	return &Game{
-		WW:         256,
-		WH:         36,
-		WX:         x - 296,
-		WY:         y - 100,
-		ConfigFile: cf,
-		PicType:    图片格式,
-		RecType:    视频格式,
-		FPath:      文件夹 + "output/",
+		WW:            256,
+		WH:            36,
+		WX:            x - 296,
+		WY:            y - 100,
+		ConfigFile:    cf,
+		PicType:       图片格式,
+		RecType:       视频格式,
+		FPath:         文件夹 + "output/",
+		Defaultscreen: ds,
 	}
 }
 
@@ -110,7 +114,9 @@ func (g *Game) PressButton(x, _ int) {
 	} else if x < 36*6 { //about
 		_, err := dlgs.Info("About", `Author: EldersJavas(eldersjavas@gmail.com)
 Github: github.com/EbitenPot/screenpot
-License: GPL v2.0`)
+License: GPL v2.0
+Powered by Ebitengine v2.4
+Enjoy!`)
 		if err != nil {
 			return
 		}
@@ -121,40 +127,7 @@ License: GPL v2.0`)
 	}
 }
 
-func (g *Game) Update() error {
-	if inpututil.IsMouseButtonJustReleased(ebiten.MouseButtonLeft) {
-		g.PressButton(ebiten.CursorPosition())
-	}
-	if ebiten.IsWindowBeingClosed() {
-		g.Exit()
-	}
-
-	return nil
-}
-
-func (g *Game) Draw(screen *ebiten.Image) {
-	screen.Fill(color.RGBA{R: 144, G: 139, B: 198, A: 0})
-	op := new(ebiten.DrawImageOptions)
-	op.GeoM.Scale(0.5, 0.5)
-	op.GeoM.Translate(0, 0)
-	screen.DrawImage(ImgCamera, op)
-	op.GeoM.Translate(36, 0)
-	screen.DrawImage(ImgRecord, op)
-	op.GeoM.Translate(36, 0)
-	screen.DrawImage(ImgStop, op)
-	op.GeoM.Translate(36, 0)
-	screen.DrawImage(ImgFolder, op)
-	op.GeoM.Translate(36, 0)
-	screen.DrawImage(ImgSite, op)
-	op.GeoM.Translate(36, 0)
-	screen.DrawImage(ImgInfo, op)
-	op.GeoM.Translate(36, 0)
-	screen.DrawImage(ImgX, op)
-}
-
-func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
-	outsideWidth = outsideWidth
-	outsideHeight = outsideHeight
+func (g *Game) Layout(_, _ int) (screenWidth, screenHeight int) {
 	return g.WW, g.WH
 }
 

@@ -1,5 +1,6 @@
 {
   "pictype": "png",
   "rectype": "mp4",
-  "savefolder": "D:/ocam"
+  "savefolder": "D:/ocam",
+  "defaultscreen": 0
 }
